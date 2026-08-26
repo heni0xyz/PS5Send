@@ -13,7 +13,7 @@ jobs:
             platform: windows-x64
             python-arch: x64
             artifact_path: dist/PS5Send-Windows
-          - os: macos-26
+          - os: macos-15-intel
             platform: macos-x64
             python-arch: x64
             artifact_path: PS5Send-macos-x64.zip
@@ -41,6 +41,10 @@ jobs:
 
       - name: Build with PyInstaller
         run: pyinstaller ps5send.spec
+
+      - name: Verify binary architecture (macOS)
+        if: runner.os == 'macOS'
+        run: lipo -archs dist/PS5Send.app/Contents/MacOS/PS5Send
 
       - name: Package macOS .app bundle
         if: runner.os == 'macOS'
