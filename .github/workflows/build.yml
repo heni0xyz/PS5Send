@@ -16,11 +16,11 @@ jobs:
           - os: macos-26
             platform: macos-x64
             python-arch: x64
-            artifact_path: dist/PS5Send.app
+            artifact_path: PS5Send-macos-x64.zip
           - os: macos-latest
             platform: macos-arm64
             python-arch: arm64
-            artifact_path: dist/PS5Send.app
+            artifact_path: PS5Send-macos-arm64.zip
 
     runs-on: ${{ matrix.os }}
 
@@ -41,6 +41,10 @@ jobs:
 
       - name: Build with PyInstaller
         run: pyinstaller ps5send.spec
+
+      - name: Package macOS .app bundle
+        if: runner.os == 'macOS'
+        run: ditto -c -k --keepParent dist/PS5Send.app ${{ matrix.artifact_path }}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
