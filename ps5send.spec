@@ -80,8 +80,27 @@ if platform.system() == 'Darwin':
             'CFBundleIdentifier': 'com.heni0xyz.ps5send',
             'CFBundleExecutable': 'PS5Send',
             'CFBundlePackageType': 'APPL',
-            'CFBundleShortVersionString': '0.0.1',
+            'CFBundleShortVersionString': '0.0.2',
             'LSUIElement': False,
             'NSHighResolutionCapable': True,
+            'CFBundleDocumentTypes': [
+                {
+                    'CFBundleTypeName': 'Automated Executable and Linkable Format',
+                    'CFBundleTypeIconFile': 'PS5Send.icns',
+                    'LSItemContentTypes': ['com.heni0xyz.ps5send.aelf'],
+                    'LSHandlerRank': 'Owner',
+                    'CFBundleTypeRole': 'Editor'
+                }
+            ],
+            'UTExportedTypeDeclarations': [
+                {
+                    'UTTypeIdentifier': 'com.heni0xyz.ps5send.aelf',
+                    'UTTypeDescription': 'Automated Executable and Linkable Format',
+                    'UTTypeConformsTo': ['public.data'],
+                    'UTTypeTagSpecification': {
+                        'public.filename-extension': ['aelf']
+                    }
+                }
+            ]
         },
     )
