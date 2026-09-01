@@ -278,7 +278,7 @@ class PS5SendApp(ctk.CTk):
         payloads.append("❌ Delete payload from list")
 
         self.autotheme_image = ctk.CTkImage(light_image=Image.open(resource_path("assets/auto.png")), dark_image=Image.open(resource_path("assets/auto.png")), size=(32, 32))
-        self.theme_image = ctk.CTkImage(light_image=Image.open(resource_path("assets/sun.png")), dark_image=Image.open(resource_path("assets/sun.png")), size=(32, 32))
+        self.theme_image = ctk.CTkImage(light_image=Image.open(resource_path("assets/sun.png")), dark_image=Image.open(resource_path("assets/moon.png")), size=(32, 32))
 
         if appTheme == "system":
             self.theme_image_button = ctk.CTkButton(self, width=32, height=32, fg_color="transparent", image=self.autotheme_image, text="", hover_color=mainColor, command=changeTheme)
