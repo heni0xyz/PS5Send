@@ -15,7 +15,7 @@ from PIL import Image
 import platform
 
 appName = "PS5Send"
-appVersion = "0.0.2"
+appVersion = "0.0.2-1"
 appTheme = "system"
 notifier = DesktopNotifier(app_name=appName)
 ctk.set_appearance_mode(appTheme)
